@@ -1,0 +1,43 @@
+stages:
+  - build
+  - test
+  - deploy
+  - prod
+  
+build:
+  stage: build
+  tags:
+    - dev
+ 
+  script:
+    - mvn install
+  artifacts:
+    paths:
+      - target/helloworld-1.0-SNAPSHOT.war
+     
+development:  
+  stage: test
+  tags:
+    - dev
+    
+  script:
+    - powershell -File build.ps1
+    - powershell -File d.ps1
+    - powershell -File t.ps1
+testing:  
+  stage: deploy
+  tags:
+    - qa
+    
+  script:
+    - powershell -File test.ps1
+    
+
+deploy:  
+  stage: prod
+  tags:
+    - prod
+    
+  script:
+    - powershell -File prod.ps1
+     

@@ -1,0 +1,2 @@
+net use \\35.171.242.48\c$ Malapati@1234 /USER:Administrator
+Copy-Item C:\lakshman\GitLab-Runner\builds\TzWo1PG2\0\singareddy46\new-cicd\target\helloworld-1.0-SNAPSHOT.war  -destination \\35.171.242.48\c$\lakshman\war
